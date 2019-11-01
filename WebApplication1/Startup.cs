@@ -17,7 +17,7 @@ namespace WebApplication1
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MoviesContext>(options =>
+            services.AddDbContext<DbTimeContext>(options =>
             {
                 options.UseSqlite("Filename=movies.db");
             });
@@ -36,7 +36,7 @@ namespace WebApplication1
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Hello}/{action=Index}/{id?}");
+                    template: "{controller=User}/{action=Index}/{id?}");
             });
 
             app.UseStaticFiles();
