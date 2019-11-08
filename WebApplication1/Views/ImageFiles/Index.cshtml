@@ -1,5 +1,5 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model IEnumerable<WebApplication1.Models.User>
+@model IEnumerable<WebApplication1.Models.ImageFiles>
 <!DOCTYPE html>
 
 <html>
@@ -13,12 +13,7 @@
         <table>
             <thead>
             <th>ID</th>
-            <th>Login</th>
-            <th>Password</th>
-            <th>Name</th>
-            <th>Update</th>
-            <th>Delete </th>
-            </th>
+            <th>Base64</th>
             <tbody>
                 @foreach (var item in Model)
                 {
@@ -27,20 +22,13 @@
                             @Html.DisplayFor(modelItem => item.id)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.login)
-                        </td>
+                            @Html.DisplayFor(modelItem => item.Base64)
                         <td>
-                            @Html.DisplayFor(modelItem => item.password)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ProfileId)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", "User", new { id = item.id })
+                            @Html.ActionLink("Edit", "Edit", "ImageFiles", new { id = item.id })
                         </td>
                         <td>
 
-                            @Html.ActionLink("Delete", "Delete", "User", new { id =  item.id})
+                            @Html.ActionLink("Delete", "Delete", "ImageFiles", new { id =  item.id})
                         </td>
                     </tr>
                 }
@@ -48,6 +36,6 @@
             </tbody>
         </table>
     </div>
-    <a href="/User/Create">Add</a>
+    <a href="/ImageFiles/Create">Add</a>
 </body>
 </html>

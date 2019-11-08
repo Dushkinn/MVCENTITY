@@ -10,12 +10,12 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class UserController : Controller
+    public class ProfileController : Controller
     {
 
         private readonly DbTimeContext db;
 
-        public UserController(DbTimeContext dbContext)
+        public ProfileController(DbTimeContext dbContext)
         {
             db = dbContext;
         }
@@ -23,8 +23,8 @@ namespace WebApplication1.Controllers
         // GET: User
         public async Task<IActionResult> Index()
         {
-            List<User> users = await db.User.ToListAsync();
-            return View(users);
+            List<Profile> pr = await db.Profile.ToListAsync();
+            return View(pr);
         }
 
 
@@ -33,14 +33,14 @@ namespace WebApplication1.Controllers
             return View("Create");
         }
 
-        public async Task<IActionResult> Add(User user)
+        public async Task<IActionResult> Add(Profile pr)
         {
 
-            db.User.Add(user);
+            db.Profile.Add(pr);
             db.SaveChanges();
-            List<User> users = await db.User.ToListAsync();
+            List<Profile> profiles = await db.Profile.ToListAsync();
 
-            return View("Index", users);
+            return View("Index", profiles);
 
         }
 
@@ -49,13 +49,13 @@ namespace WebApplication1.Controllers
         // POST: User/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(User user)
+        public async Task<IActionResult> Update(Profile profile)
         {
 
-            db.User.Update(user);
+            db.Profile.Update(profile);
             db.SaveChanges();
-            List<User> users = await db.User.ToListAsync();
-            return View("Index", users);
+            List<Profile> pr = await db.Profile.ToListAsync();
+            return View("Index", pr);
         }
 
 
@@ -63,9 +63,9 @@ namespace WebApplication1.Controllers
 
         public IActionResult Edit(int id)
         {
-            User user = db.User.Where(u => u.id == id).FirstOrDefault();
+            Profile pr = db.Profile.Where(u => u.id == id).FirstOrDefault();
 
-            return View("Edit", user);
+            return View("Edit", pr);
         }
 
 
@@ -73,10 +73,10 @@ namespace WebApplication1.Controllers
         // GET: User/Delete/5
         public async Task<IActionResult> Delete(int id)
         {
-            db.User.Remove(db.User.Where(u => u.id == id).First());
+            db.Profile.Remove(db.Profile.Where(u => u.id == id).First());
             db.SaveChanges();
-            List<User> users = await db.User.ToListAsync();
-            return View("Index", users);
+            List<Profile> pr = await db.Profile.ToListAsync();
+            return View("Index", pr);
         }
 
 

@@ -10,12 +10,12 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class UserController : Controller
+    public class TimeCapsuleController : Controller
     {
 
         private readonly DbTimeContext db;
 
-        public UserController(DbTimeContext dbContext)
+        public TimeCapsuleController(DbTimeContext dbContext)
         {
             db = dbContext;
         }
@@ -23,8 +23,8 @@ namespace WebApplication1.Controllers
         // GET: User
         public async Task<IActionResult> Index()
         {
-            List<User> users = await db.User.ToListAsync();
-            return View(users);
+            List<TimeCapsuleController> tc = await db.TimeCapsule.ToListAsync();
+            return View(tc);
         }
 
 
@@ -33,14 +33,14 @@ namespace WebApplication1.Controllers
             return View("Create");
         }
 
-        public async Task<IActionResult> Add(User user)
+        public async Task<IActionResult> Add(TimeCapsule tc)
         {
 
-            db.User.Add(user);
+            db.TimeCapsule.Add(tc);
             db.SaveChanges();
-            List<User> users = await db.User.ToListAsync();
+            List<TimeCapsule> timecapsules = await db.TimeCapsule.ToListAsync();
 
-            return View("Index", users);
+            return View("Index", timecapsules);
 
         }
 
@@ -49,13 +49,13 @@ namespace WebApplication1.Controllers
         // POST: User/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(User user)
+        public async Task<IActionResult> Update(TimeCapsule tm)
         {
 
-            db.User.Update(user);
+            db.TimeCapsule.Update(tm);
             db.SaveChanges();
-            List<User> users = await db.User.ToListAsync();
-            return View("Index", users);
+            List<TimeCapsule> tmCapsule = await db.TimeCapsule.ToListAsync();
+            return View("Index", tmCapsule);
         }
 
 
@@ -63,9 +63,9 @@ namespace WebApplication1.Controllers
 
         public IActionResult Edit(int id)
         {
-            User user = db.User.Where(u => u.id == id).FirstOrDefault();
+            TimeCapsule tc = db.TimeCapsule.Where(u => u.id == id).FirstOrDefault();
 
-            return View("Edit", user);
+            return View("Edit", tc);
         }
 
 
@@ -73,10 +73,10 @@ namespace WebApplication1.Controllers
         // GET: User/Delete/5
         public async Task<IActionResult> Delete(int id)
         {
-            db.User.Remove(db.User.Where(u => u.id == id).First());
+            db.TimeCapsule.Remove(db.TimeCapsule.Where(u => u.id == id).First());
             db.SaveChanges();
-            List<User> users = await db.User.ToListAsync();
-            return View("Index", users);
+            List<TimeCapsule> tc = await db.TimeCapsule.ToListAsync();
+            return View("Index", tc);
         }
 
 

@@ -10,12 +10,12 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class UserController : Controller
+    public class StringFilesController : Controller
     {
 
         private readonly DbTimeContext db;
 
-        public UserController(DbTimeContext dbContext)
+        public StringFilesController(DbTimeContext dbContext)
         {
             db = dbContext;
         }
@@ -23,8 +23,8 @@ namespace WebApplication1.Controllers
         // GET: User
         public async Task<IActionResult> Index()
         {
-            List<User> users = await db.User.ToListAsync();
-            return View(users);
+            List<StringFiles> str = await db.StringFiles.ToListAsync();
+            return View(str);
         }
 
 
@@ -33,14 +33,14 @@ namespace WebApplication1.Controllers
             return View("Create");
         }
 
-        public async Task<IActionResult> Add(User user)
+        public async Task<IActionResult> Add(StringFiles str)
         {
 
-            db.User.Add(user);
+            db.StringFiles.Add(str);
             db.SaveChanges();
-            List<User> users = await db.User.ToListAsync();
+            List<StringFiles> strings = await db.StringFiles.ToListAsync();
 
-            return View("Index", users);
+            return View("Index", strings);
 
         }
 
@@ -49,13 +49,13 @@ namespace WebApplication1.Controllers
         // POST: User/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(User user)
+        public async Task<IActionResult> Update(StringFiles str)
         {
 
-            db.User.Update(user);
+            db.StringFiles.Update(str);
             db.SaveChanges();
-            List<User> users = await db.User.ToListAsync();
-            return View("Index", users);
+            List<StringFiles> strings = await db.StringFiles.ToListAsync();
+            return View("Index", strings);
         }
 
 
@@ -63,9 +63,9 @@ namespace WebApplication1.Controllers
 
         public IActionResult Edit(int id)
         {
-            User user = db.User.Where(u => u.id == id).FirstOrDefault();
+            StringFiles str = db.StringFiles.Where(u => u.id == id).FirstOrDefault();
 
-            return View("Edit", user);
+            return View("Edit", str);
         }
 
 
@@ -73,10 +73,10 @@ namespace WebApplication1.Controllers
         // GET: User/Delete/5
         public async Task<IActionResult> Delete(int id)
         {
-            db.User.Remove(db.User.Where(u => u.id == id).First());
+            db.StringFiles.Remove(db.StringFiles.Where(u => u.id == id).First());
             db.SaveChanges();
-            List<User> users = await db.User.ToListAsync();
-            return View("Index", users);
+            List<StringFiles> strings = await db.StringFiles.ToListAsync();
+            return View("Index", strings);
         }
 
 

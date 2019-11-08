@@ -1,0 +1,35 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model WebApplication1.Models.User
+@{
+    ViewData["Title"] = "Create";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>SomeView</title>
+</head>
+<div class="container text-center">
+<h2>new Data</h2>
+<form class="mx-auto" asp-action="Update">
+    <label asp-for="id" class="control-label"></label>
+    <input class="mb-2" asp-for="id" type="hidden" />
+    
+    <label asp-for="login" class="contr ol-label">Login</label>
+    <input class="mb-2" asp-for="login" type="text" />
+    
+    <label asp-for="password" class="control-label">Password</label>
+    <input class="mb-2" asp-for="password" type="text" />
+   
+    <label asp-for="ProfileId" class="control-label">Name</label>
+    <input  class="mb-2" asp-for="ProfileId" type="text" />
+   
+    <button class="btn-primary">Submit</button>
+</form>
+    </div>
+
+</html>
+
+

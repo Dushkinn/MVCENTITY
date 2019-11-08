@@ -1,5 +1,5 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model IEnumerable<WebApplication1.Models.User>
+@model IEnumerable<WebApplication1.Models.StringFiles>
 <!DOCTYPE html>
 
 <html>
@@ -13,12 +13,7 @@
         <table>
             <thead>
             <th>ID</th>
-            <th>Login</th>
-            <th>Password</th>
-            <th>Name</th>
-            <th>Update</th>
-            <th>Delete </th>
-            </th>
+            <th>Files</th>
             <tbody>
                 @foreach (var item in Model)
                 {
@@ -27,20 +22,13 @@
                             @Html.DisplayFor(modelItem => item.id)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.login)
-                        </td>
+                            @Html.DisplayFor(modelItem => item.files)
                         <td>
-                            @Html.DisplayFor(modelItem => item.password)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ProfileId)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", "User", new { id = item.id })
+                            @Html.ActionLink("Edit", "Edit", "StringFiles", new { id = item.id })
                         </td>
                         <td>
 
-                            @Html.ActionLink("Delete", "Delete", "User", new { id =  item.id})
+                            @Html.ActionLink("Delete", "Delete", "StringFiles", new { id =  item.id})
                         </td>
                     </tr>
                 }
@@ -48,6 +36,6 @@
             </tbody>
         </table>
     </div>
-    <a href="/User/Create">Add</a>
+    <a href="/StringFiles/Create">Add</a>
 </body>
 </html>

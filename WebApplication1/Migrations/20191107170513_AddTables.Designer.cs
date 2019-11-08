@@ -8,8 +8,8 @@ using WebApplication1.Data;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(DbTimeContext))]
-    [Migration("20191101165744_New")]
-    partial class New
+    [Migration("20191107170513_AddTables")]
+    partial class AddTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,6 +31,46 @@ namespace WebApplication1.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Friends");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.ImageFiles", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Base64");
+
+                    b.HasKey("id");
+
+                    b.ToTable("ImageFiles");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Profile", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("MobilePhone");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Surname");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Profile");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.StringFiles", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("files");
+
+                    b.HasKey("id");
+
+                    b.ToTable("StringFiles");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.TimeCapsule", b =>
@@ -56,7 +96,9 @@ namespace WebApplication1.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("files");
+                    b.Property<int>("FileId");
+
+                    b.Property<int>("type");
 
                     b.HasKey("id");
 
@@ -68,7 +110,7 @@ namespace WebApplication1.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name");
+                    b.Property<int>("ProfileId");
 
                     b.Property<string>("login");
 

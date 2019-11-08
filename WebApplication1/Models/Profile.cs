@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace WebApplication1.Models
 {
-    public class TimeCapsuleFiles
+    public class Profile
     {
+
         [Key]
         public int id { get; set; }
-        //1 - image , 2 - string
-        public int type { get; set; }
-        public int FileId { get; set; }
+        
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string MobilePhone { get; set; }
+
     }
 }

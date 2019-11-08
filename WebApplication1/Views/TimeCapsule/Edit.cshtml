@@ -1,0 +1,35 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model WebApplication1.Models.TimeCapsule
+@{
+    ViewData["Title"] = "Create";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>SomeView</title>
+</head>
+<div class="container text-center">
+<h2>New Data</h2>
+<form class="mx-auto" asp-action="Update">
+    <label asp-for="id" class="control-label"></label>
+    <input class="mb-2" asp-for="id" type="hidden" />
+
+    <label asp-for="Name" class="control-label">Login</label>
+    <input class="mb-2" asp-for="Name" type="text" />
+    <label asp-for="TimeCapsuleFileId" class="control-label">Login</label>
+    <input class="mb-2" asp-for="TimeCapsuleFileId" type="text" />
+    <label asp-for="UserSource" class="control-label">Login</label>
+    <input class="mb-2" asp-for="UserSource" type="text" />
+    <label asp-for="UserDestination" class="control-label">Login</label>
+    <input class="mb-2" asp-for="UserDestination" type="text" />
+
+    <button class="btn-primary">Submit</button>
+</form>
+    </div>
+
+</html>
+
+

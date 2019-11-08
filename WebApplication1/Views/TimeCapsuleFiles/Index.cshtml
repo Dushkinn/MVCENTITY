@@ -1,0 +1,44 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<WebApplication1.Models.TimeCapsuleFiles>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>SomeView</title>
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+            <th>ID</th>
+            <th>Base64</th>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.type)
+                    <td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FileId)
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", "TimeCapsuleFiles", new { id = item.id })
+                    </td>
+                    <td>
+
+                        @Html.ActionLink("Delete", "Delete", "TimeCapsuleFiles", new { id = item.id })
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <a href="/TimeCapsuleFiles/Create">Add</a>
+</body>
+</html>

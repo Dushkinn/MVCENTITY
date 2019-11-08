@@ -1,5 +1,5 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model WebApplication1.Models.User
+@model WebApplication1.Models.TimeCapsule
 @{
     ViewData["Title"] = "Create";
 }
@@ -12,11 +12,13 @@
     <title>SomeView</title>
 </head>
 
-<h2>new Data</h2>
-<form class="mx-auto" asp-action="Edit">
-    <input asp-for="login" type="text" />
-    <input asp-for="password" type="text" />
-    <input asp-for="name" type="text" />
+<h2>Create</h2>
+<h2>Add User</h2>
+<form class="mx-auto" asp-action="Add">
+    <input asp-for="Name" type="text" />
+    <input asp-for="TimeCapsuleFileId" type="text" />
+    <input asp-for="UserSource" type="text" />
+    <input asp-for="UserDestination" type="text" />
     <button class="btn-primary">Submit</button>
 </form>
 </html>

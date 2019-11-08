@@ -1,5 +1,5 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model IEnumerable<WebApplication1.Models.User>
+@model IEnumerable<WebApplication1.Models.Friends>
 <!DOCTYPE html>
 
 <html>
@@ -27,13 +27,13 @@
                             @Html.DisplayFor(modelItem => item.id)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.login)
+                            @Html.DisplayFor(modelItem => item.User1)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.password)
+                            @Html.DisplayFor(modelItem => item.User2)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ProfileId)
+                            @Html.DisplayFor(modelItem => item.status)
                         </td>
                         <td>
                             @Html.ActionLink("Edit", "Edit", "User", new { id = item.id })
@@ -48,6 +48,6 @@
             </tbody>
         </table>
     </div>
-    <a href="/User/Create">Add</a>
+    <a href="/Friends/Create">Add</a>
 </body>
 </html>
