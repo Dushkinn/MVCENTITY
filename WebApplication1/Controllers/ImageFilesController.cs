@@ -36,6 +36,11 @@ namespace WebApplication1.Controllers
         public async Task<IActionResult> Add(ImageFiles img)
         {
 
+            if (!ModelState.IsValid)
+            {
+                return View("Create");
+            }
+
             db.ImageFiles.Add(img);
             db.SaveChanges();
             List<ImageFiles> images = await db.ImageFiles.ToListAsync();
@@ -51,6 +56,10 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(ImageFiles img)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Edit");
+            }
 
             db.ImageFiles.Update(img);
             db.SaveChanges();

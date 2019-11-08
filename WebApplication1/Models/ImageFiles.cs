@@ -11,6 +11,8 @@ namespace WebApplication1.Models
     {
         [Key]
         public int id { get; set; }
+        [Required]
+        [MaxLength(10000000)]
         public String Base64 { get; set; }
     }
 }

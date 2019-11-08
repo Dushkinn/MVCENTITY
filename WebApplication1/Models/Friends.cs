@@ -11,10 +11,16 @@ namespace WebApplication1.Models
     {
         [Key]
         public int id { get; set; }
+        [Required]
+        [Range(1, 1000000)]
         [ForeignKey("User")]
         public int User1 { get; set; }
+        [Required]
+        [Range(1, 100000)]
         [ForeignKey("User")]
         public int User2 { get; set; }
+        [Required]
+        [Range(1, 3)]
         public bool status { get; set; }
     }
 }

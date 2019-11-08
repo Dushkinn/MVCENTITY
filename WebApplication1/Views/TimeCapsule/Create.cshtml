@@ -13,14 +13,47 @@
 </head>
 
 <h2>Create</h2>
-<h2>Add User</h2>
-<form class="mx-auto" asp-action="Add">
-    <input asp-for="Name" type="text" />
-    <input asp-for="TimeCapsuleFileId" type="text" />
-    <input asp-for="UserSource" type="text" />
-    <input asp-for="UserDestination" type="text" />
-    <button class="btn-primary">Submit</button>
-</form>
+<h2>Add Capsule</h2>
+<body>
+    <div class="container text-center">
+        <h2>Add TimeCapsule</h2>
+
+        <form class="mx-auto text-center" asp-action="Add">
+
+            <div>
+                <label asp-for="Name" class="control-label">Name</label>
+                <br />
+                <input asp-for="Name" type="text" />
+                <br />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="TimeCapsuleFileId" class="control-label">TimeCapsuleFileId</label>
+                <br />
+                <input asp-for="TimeCapsuleFileId" type="text" />
+                <br />
+                <span asp-validation-for="TimeCapsuleFileId" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="UserSource" class="control-label">UserSource</label>
+                <br />
+                <input asp-for="UserSource" type="text" />
+                <br />
+                <span asp-validation-for="UserSource" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="UserDestination" class="control-label">UserDestination</label>
+                <br />
+                <input asp-for="UserDestination" type="text" />
+                <br />
+                <span asp-validation-for="UserDestination" class="text-danger"></span>
+            </div>
+            <br />
+            <button class="btn-primary">Submit</button>
+        </form>
+    </div>
+
+</body>
 </html>
 
 

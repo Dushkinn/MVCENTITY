@@ -36,7 +36,7 @@ namespace WebApplication1
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=StringFiles}/{action=Index}/{id?}");
+                    template: "{controller=Profile}/{action=Index}/{id?}");
             });
 
             app.UseStaticFiles();

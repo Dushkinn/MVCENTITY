@@ -13,13 +13,42 @@
 </head>
 
 <h2>Create</h2>
-<h2>Add User</h2>
-<form class="mx-auto" asp-action="Add">
-    <input asp-for="User1" type="text" />
-    <input asp-for="User2" type="text" />
-    <input asp-for="status" type="text" />
-    <button class="btn-primary">Submit</button>
-</form>
+<h2>Add Friends</h2>
+<body>
+    <div class="container text-center">
+        <h2>Add TimeCapsule</h2>
+
+        <form class="mx-auto text-center" asp-action="Add">
+
+            <div>
+                <label asp-for="User1" class="control-label">User1</label>
+                <br />
+                <input asp-for="User1" type="text" />
+                <br />
+                <span asp-validation-for="User1" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="User2" class="control-label">User1</label>
+                <br />
+                <input asp-for="User2" type="text" />
+                <br />
+                <span asp-validation-for="User2" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="status" class="control-label">Base64</label>
+                <br />
+                <input asp-for="status" type="text" />
+                <br />
+                <span asp-validation-for="status" class="text-danger"></span>
+            </div>
+
+
+            <br />
+            <button class="btn-primary">Submit</button>
+        </form>
+    </div>
+
+</body>
 </html>
 
 

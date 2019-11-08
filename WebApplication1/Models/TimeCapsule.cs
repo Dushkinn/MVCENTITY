@@ -11,12 +11,18 @@ namespace WebApplication1.Models
     {
         [Key]
         public int id { get; set; }
+        [Required]
+        [MaxLength(30)]
         public string Name { get; set; }
         [ForeignKey("TimeCapsuleFile")]
         public int TimeCapsuleFileId { get; set; }
         [ForeignKey("User")]
+        [Required]
+        [Range(1, 100000)]
         public int UserSource { get; set; }
         [ForeignKey("User")]
+        [Required]
+        [Range(1, 100000)]
         public int UserDestination { get; set; }
     }
 }

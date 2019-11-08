@@ -35,6 +35,10 @@ namespace WebApplication1.Controllers
 
         public async Task<IActionResult> Add(TimeCapsuleFiles tm)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Create");
+            }
 
             db.TimeCapsuleFiles.Add(tm);
             db.SaveChanges();
@@ -51,6 +55,10 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(TimeCapsuleFiles tm)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Edit");
+            }
 
             db.TimeCapsuleFiles.Update(tm);
             db.SaveChanges();

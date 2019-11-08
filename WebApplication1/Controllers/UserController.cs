@@ -35,13 +35,17 @@ namespace WebApplication1.Controllers
 
         public async Task<IActionResult> Add(User user)
         {
-
-            db.User.Add(user);
-            db.SaveChanges();
+            if (!ModelState.IsValid)
+            {
+                return View("Create");
+            }
+                db.User.Add(user);
+                db.SaveChanges();
+             
+            
             List<User> users = await db.User.ToListAsync();
 
             return View("Index", users);
-
         }
 
 
@@ -51,6 +55,10 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(User user)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Edit");
+            }
 
             db.User.Update(user);
             db.SaveChanges();
@@ -77,6 +85,34 @@ namespace WebApplication1.Controllers
             db.SaveChanges();
             List<User> users = await db.User.ToListAsync();
             return View("Index", users);
+        }
+
+        [HttpPost]
+        public JsonResult IsAlreadySigned(string login)
+        {
+
+            return Json(IsUserAvailable(login));
+
+        }
+        public bool IsUserAvailable(string login)
+        {
+
+            var userLogin = db.User.Where(u => u.login == login).FirstOrDefault();
+
+            bool status;
+            if (userLogin != null)
+            {
+                //Already registered  
+                status = false;
+            }
+            else
+            {
+                //Available to use  
+                status = true;
+            }
+
+
+            return status;
         }
 
 

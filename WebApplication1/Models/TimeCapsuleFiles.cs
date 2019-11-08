@@ -11,7 +11,11 @@ namespace WebApplication1.Models
         [Key]
         public int id { get; set; }
         //1 - image , 2 - string
+        [Required]
+        [Range(1, 2)]
         public int type { get; set; }
+        [Required]
+        [Range(1, 100000)]
         public int FileId { get; set; }
     }
 }

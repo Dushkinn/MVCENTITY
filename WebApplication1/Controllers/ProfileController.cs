@@ -35,6 +35,10 @@ namespace WebApplication1.Controllers
 
         public async Task<IActionResult> Add(Profile pr)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Create");
+            }
 
             db.Profile.Add(pr);
             db.SaveChanges();
@@ -51,6 +55,11 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(Profile profile)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return View("Edit");
+            }
 
             db.Profile.Update(profile);
             db.SaveChanges();

@@ -23,18 +23,23 @@ namespace WebApplication1.Controllers
         // GET: User
         public async Task<IActionResult> Index()
         {
-            List<TimeCapsuleController> tc = await db.TimeCapsule.ToListAsync();
+            List<TimeCapsule> tc = await db.TimeCapsule.ToListAsync();
             return View(tc);
         }
 
 
         public ActionResult Create()
         {
+
             return View("Create");
         }
 
         public async Task<IActionResult> Add(TimeCapsule tc)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Create");
+            }
 
             db.TimeCapsule.Add(tc);
             db.SaveChanges();
@@ -51,6 +56,10 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(TimeCapsule tm)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Edit");
+            }
 
             db.TimeCapsule.Update(tm);
             db.SaveChanges();
@@ -63,6 +72,8 @@ namespace WebApplication1.Controllers
 
         public IActionResult Edit(int id)
         {
+
+
             TimeCapsule tc = db.TimeCapsule.Where(u => u.id == id).FirstOrDefault();
 
             return View("Edit", tc);

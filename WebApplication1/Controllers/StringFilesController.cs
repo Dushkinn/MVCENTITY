@@ -35,6 +35,10 @@ namespace WebApplication1.Controllers
 
         public async Task<IActionResult> Add(StringFiles str)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Create");
+            }
 
             db.StringFiles.Add(str);
             db.SaveChanges();
@@ -51,6 +55,11 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(StringFiles str)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return View("Edit");
+            }
 
             db.StringFiles.Update(str);
             db.SaveChanges();

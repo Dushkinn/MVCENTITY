@@ -36,6 +36,11 @@ namespace WebApplication1.Controllers
         public async Task<IActionResult> Add(Friends fr)
         {
 
+            if (!ModelState.IsValid)
+            {
+                return View("Create");
+            }
+
             db.Friends.Add(fr);
             db.SaveChanges();
             List<Friends> friends = await db.Friends.ToListAsync();
@@ -51,6 +56,10 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(Friends fr)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Edit");
+            }
 
             db.Friends.Update(fr);
             db.SaveChanges();
